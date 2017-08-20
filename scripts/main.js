@@ -1,5 +1,4 @@
-//let WORD = "ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn";
-let WORD = "hejsan";
+let WORD;
 let inputBox;
 let inputElem;
 let body;
@@ -7,13 +6,7 @@ let body;
 document.addEventListener("DOMContentLoaded", () => {
   inputBox = document.getElementById("input-box");
   body = document.getElementsByTagName("body")[0];
-  //addWordInput();
-  addInputFields(WORD);
-
-  inputElem = Array.prototype.slice.call(
-    inputBox.getElementsByTagName("input")
-  );
-  inputElem[0].focus();
+  addWordInput();
 });
 
 function addInputFields(word) {
@@ -22,9 +15,13 @@ function addInputFields(word) {
     textField.type = "text";
     textField.value = "";
     textField.setAttribute("maxlength", 1);
-    textField.setAttribute("onkeypress", "keyEvent(event)");
+    textField.onkeypress = keyEvent;
     inputBox.appendChild(textField);
   }
+  inputElem = Array.prototype.slice.call(
+    inputBox.getElementsByTagName("input")
+  );
+  inputElem[0].focus();
 }
 
 function keyEvent(event) {
@@ -64,13 +61,31 @@ function keyEvent(event) {
     body.appendChild(textElem);
     for (var i = 0; i < inputElem.length; i++) {
       inputElem[i].classList.add("correct-letter");
+      inputElem[i].disabled = true;
     }
   }
 }
 
 function addWordInput() {
+  let container = document.createElement("form");
+  container.id = "user-input-box";
   let input = document.createElement("input");
   input.type = "text";
+  input.id = "choose-word";
+  input.placeholder = "Choose a word...";
   let button = document.createElement("button");
-  // in progress...
+  button.onclick = startGame;
+  let text = document.createTextNode("Start");
+  button.appendChild(text);
+  container.appendChild(input);
+  container.appendChild(button);
+  inputBox.appendChild(container);
+  input.focus();
+}
+
+function startGame() {
+  WORD = document.getElementById("choose-word").value.toLowerCase();
+  let box = document.getElementById("user-input-box");
+  inputBox.removeChild(box);
+  addInputFields(WORD);
 }
