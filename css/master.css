@@ -1,8 +1,7 @@
 body {
   margin: 0;
-}
-
-#main {
+  background-image: url('../images/StockSnap_L4AS0Y1OT2.jpg');
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -10,17 +9,49 @@ body {
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+  font-size: 70px;
+  color: #e8e8e8;
+  text-shadow: 2px 2px 55px #333;
+  position: absolute;
+  top: 2vh;
+}
+
 #input-box {
   display: flex;
-  background-color: #09cdda;
-  padding: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90vw;
+  background-color: rgba(70, 70, 70, 0.9);
+  padding: 2em;
   border-radius: 0.2em;
 }
 
 #input-box > input {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
   text-align: center;
   outline: none;
+}
+
+#winner-message {
+  position: absolute;
+  bottom: 10vh;
+  margin: 0;
+  max-width: 80vw;
+  text-align: center;
+  font-size: 50px;
+  color: green;
+  text-shadow: 2px 2px 55px #333;
+}
+
+.wrong-letter {
+  background-color: red;
+  color: white;
+}
+
+.correct-letter {
+  background-color: green;
 }
