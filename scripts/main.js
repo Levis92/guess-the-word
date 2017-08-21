@@ -35,9 +35,9 @@ function keyEvent(event) {
   }
   if (value.toLowerCase() != WORD.charAt(index)) {
     elem.classList.add("wrong-letter");
+    inputElem[0].focus();
     setTimeout(() => {
       elem.classList.remove("wrong-letter");
-      inputElem[0].focus();
       for (var i = 0; i < inputElem.length; i++) {
         inputElem[i].value = "";
       }

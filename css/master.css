@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
   background-image: url('../images/StockSnap_L4AS0Y1OT2.jpg');
   background-size: cover;
   height: 100vh;
@@ -80,4 +81,5 @@ h1 {
 
 .correct-letter {
   background-color: green;
+  color: white;
 }
