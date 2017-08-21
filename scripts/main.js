@@ -2,7 +2,10 @@ const WORD = "ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn";
 const headingList = [
   "HE is coming...",
   "Bathe in HIS glory...",
-  "Let HIM devour you..."
+  "Let HIM devour you...",
+  "Praise HIM...",
+  "Our saviour from this life...",
+  "Praise HIM... Praise HIM..."
 ];
 let inputBox;
 let inputElem;
