@@ -1,4 +1,9 @@
-let WORD;
+const WORD = "ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn";
+const headingList = [
+  "HE is coming...",
+  "Bathe in HIS glory...",
+  "Let HIM devour you..."
+];
 let inputBox;
 let inputElem;
 let body;
@@ -6,7 +11,8 @@ let body;
 document.addEventListener("DOMContentLoaded", () => {
   inputBox = document.getElementById("input-box");
   body = document.getElementsByTagName("body")[0];
-  addWordInput();
+  addInputFields(WORD);
+  alternateTitle();
 });
 
 function addInputFields(word) {
@@ -66,26 +72,12 @@ function keyEvent(event) {
   }
 }
 
-function addWordInput() {
-  let container = document.createElement("form");
-  container.id = "user-input-box";
-  let input = document.createElement("input");
-  input.type = "text";
-  input.id = "choose-word";
-  input.placeholder = "Choose a word...";
-  let button = document.createElement("button");
-  button.onclick = startGame;
-  let text = document.createTextNode("Start");
-  button.appendChild(text);
-  container.appendChild(input);
-  container.appendChild(button);
-  inputBox.appendChild(container);
-  input.focus();
-}
-
-function startGame() {
-  WORD = document.getElementById("choose-word").value.toLowerCase();
-  let box = document.getElementById("user-input-box");
-  inputBox.removeChild(box);
-  addInputFields(WORD);
+function alternateTitle() {
+  const heading = document.getElementsByTagName("h1")[0];
+  let index = 0;
+  setInterval(() => {
+    heading.innerHTML = headingList[index];
+    index++;
+    if (index === headingList.length) index = 0;
+  }, 10000);
 }
