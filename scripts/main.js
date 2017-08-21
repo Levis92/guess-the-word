@@ -60,7 +60,7 @@ function keyEvent(event) {
       word += val.toLowerCase();
     } else word += " ";
   }
-  if (WORD === word) {
+  if (WORD.toLowerCase() === word) {
     let textElem = document.createElement("h2");
     textElem.id = "winner-message";
     let text = document.createTextNode(
